@@ -1,0 +1,94 @@
+.newAndNowMain{
+    position: relative;
+    min-height: 100vh;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    gap: 0 50px;
+    /* align-items: center; */
+    /* border: 1px solid lime;; */
+}
+.LoadMore{
+    color: royalblue;
+    padding: 5px 50px;
+    transition: 0.5s ease;;
+    background: none;
+    cursor: pointer;
+    border: 1px solid royalblue;
+}
+.LoadMore:hover{
+    background-color: royalblue;
+    color: white;
+}
+.newAndNowMain > .newAndNowSideBr{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 10px;
+    font-size: 13px;
+    width: 600px;
+    /* border: 1px solid black;; */
+}
+.newAndNowMain > .newAndNowSideBr > h4{
+    font-weight: 500;
+}
+.newAndNowMain > .newAndNowSideBr > p{
+    cursor: pointer;
+    /* border: 1px solid black;; */
+}
+
+.newAndNowMain  > .newAndNowItems{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    /* border: 1px solid black; */
+}
+.newAndNowMain  > .newAndNowItems > a {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    /* border: 1px solid black;; */
+}
+.newAndNowMain  > .newAndNowItems > a  > .newItemBox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 10px 5px;
+    height: 100%;
+    /* border: 1px solid red; */
+}
+.newAndNowMain  > .newAndNowItems > a  > .newItemBox > img{
+    width: 50%;
+}
+
+.newAndNowMain  > .newAndNowItems > a  > .newItemBox > .newItemDetails{
+    text-align: center;
+    width: 100%;;
+    /* border: 1px solid black;; */
+}
+.newAndNowMain  > .newAndNowItems > a  > .newItemBox > .newItemDetails > h4{
+    font-weight: 500;
+    /* font-size: 15px; */
+}
+.newAndNowMain  > .newAndNowItems > a  > .newItemBox > .newItemDetails > span{
+    font-size: 12px;
+}
+
+.newAndNowMain  > .newAndNowItems > a  > .newItemBox > .newItemDetails > .newItemBtnbx{
+    text-align: center;
+    /* width: 90%; */
+    margin-top: 10px;;
+    /* border: 1px solid black; */
+}
+.newAndNowMain  > .newAndNowItems > a  > .newItemBox > .newItemDetails > .newItemBtnbx > button{
+    background-color: #333333;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: white;
+    width: 100%;
+    border: none;
+}
