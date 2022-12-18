@@ -1,27 +1,71 @@
-import { createContext , useState} from "react";
+import { createContext , useState, useEffect} from "react";
 
 export const AuthContext = createContext();
 
 function AuthContextProvider({ children }){
     const [isAuth, setIsAuth] = useState(false);
-    const [token, setToken] = useState(null)
+    const [token, setToken] = useState([])
+    const [cartItem, setCartitem] = useState([])
 
-    const Login = (newToken) => {
-        setToken(newToken)
+    // Set data to localy 
+        let userAuth = JSON.parse(localStorage.getItem('userData')) || []
+        const { auth, userData } = userAuth
+    // Set data to localy
+
+    let count = 0;
+    const getData = () => {
+        return fetch(`http://localhost:8080/addtocart`)
+        .then((res) => res.json())
+    }
+    const getCoutn = async () => {
+        try{
+            const data = await getData();
+            setCartitem(data)
+        }catch (err) {
+            console.log(err);
+        }
+    }
+    useEffect(() => {
+        getCoutn();
+    },[])
+
+    
+    
+    const Login = (profileData) => {
+        setToken(profileData)
         setIsAuth(true)
     }
-    // if(token !== null){
-    // }
-
+    
     const Logout = () => {
         setIsAuth(false)
-        setToken(null)
+        setToken("")
+        localStorage.removeItem('userData');
+    }
+    
+    if(isAuth){
+        let authantication = {
+            userData: token,
+            auth: true
+        }
+        localStorage.setItem("userData", JSON.stringify(authantication));
+        setTimeout(function(){
+            window.location.href = "/"
+        },500)
     }
 
-    console.log(token)
+    // console.log(auth)
+    if(auth){
+        cartItem.map((ele) => {
+            if(ele.userId == userData.id){
+                count++
+            }
+        })        
+        
+    }
+
 
     return (
-        <AuthContext.Provider value={{isAuth, Login, Logout, token}}>
+        <AuthContext.Provider value={{isAuth: auth || false, Login, Logout, token: userData, cartCount:count}}>
             {children}
         </AuthContext.Provider>
     )

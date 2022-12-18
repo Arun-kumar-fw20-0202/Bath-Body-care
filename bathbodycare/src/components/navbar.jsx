@@ -1,15 +1,11 @@
 import "../css/navbar.css"
 import 'font-awesome/css/font-awesome.min.css';
-
 import {Link} from "react-router-dom"
-
 import { AuthContext } from "../context/AuthContext";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 
 function Navbar(){
-
-    const {isAuth} = useContext(AuthContext)
-
+    const {isAuth, Logout,cartCount} = useContext(AuthContext)
     const link = [
         {path: "/new&now", text:"New and Now"},
         {path: "/bodycare", text:"Body Care"},
@@ -29,9 +25,21 @@ function Navbar(){
                 </Link>
                 <div className="navIcon">
                 <input type="text" placeholder="Search by fragrance or product..." />
-                    {!isAuth ? <Link to="/login" ><i className="fa fa-user-circle"></i></Link> : <Link to="/profile"> <i className="fa fa-user-circle"></i></Link>}
-                    
-                    <i className="fa fa-shopping-bag"></i>
+                    {
+                        !isAuth 
+                        ? <Link to="/login" ><i className="fa fa-user-circle"></i></Link> 
+                        : <Link to="/profile" className="loggedIn"> 
+                            <i className="fa fa-user-circle"></i>
+                            <div className="profilePopup">
+                                <Link to="/myinfo">My Account</Link>
+                                <Link to="/myorder">My Order</Link>
+                                <Link onClick={Logout}>Logout</Link>
+                            </div>
+                          </Link>
+                    }
+                    <Link to="/mycart">
+                        <i className="fa fa-shopping-bag">{cartCount}</i>
+                    </Link>
                 </div>
             </div>
 

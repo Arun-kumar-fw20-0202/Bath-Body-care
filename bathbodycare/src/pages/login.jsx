@@ -7,14 +7,15 @@ import axios from "axios"
 import { AuthContext } from '../context/AuthContext';
 
 const userLogin = {
-    email : "eve.holt@reqres.in",
-    password: "cityslicka"
+    email : "rohan@gmail.com",
+    password: "1234"
 }
 
 // https://reqres.in/api/login
 function Login(){
     const {isAuth, Login} = useContext(AuthContext)
     const [user, setUser] = useState(userLogin)
+    const [loginDeta, setLoginData] = useState([])
     const Navigate = useNavigate()
 
     const handleChange = (e) => {
@@ -22,15 +23,20 @@ function Login(){
         setUser( {...user, [e.target.name]: val } )
     }
 
+    useEffect(() => {
+        fetch(`http://localhost:8080/users`)
+        .then((res) => res.json())
+        .then((res) => setLoginData(res))
+        .catch((err) => console.log(err))
+    },[])
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`https://reqres.in/api/login`,user)
-        .then((res) => {
-            Login(res.data.token)
+        loginDeta.map((ele) => {
+            if(ele.email == email && ele.password == password){
+                Login(ele)
+            }
         })
     }
-
-    console.log(isAuth)
     
     const {email,password} = user;
     

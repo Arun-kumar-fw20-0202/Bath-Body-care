@@ -83,7 +83,7 @@
 }
 .singleMain > .singleDetails > .singleDropdown{
     position: relative;
-    height: 40px;
+    height: 30px;
     width: 65%;
     overflow: hidden;
     padding: 10px 20px;
@@ -91,11 +91,18 @@
     flex-direction: column;
     margin: 10px 0;
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     /* line-height: 0; */
 }
 .singleMain > .singleDetails > .singleDropdown.active{
     height: auto;
+}
+.singleMain > .singleDetails > .singleDropdown.active .singleDown > span{
+    opacity: 1;
+}
+.singleMain > .singleDetails > .singleDropdown > .singleDown > span{
+    opacity: 0;
+    transition: 0.5s;
 }
 .singleMain > .singleDetails > .singleDropdown > .singleDown{
     display: flex;
@@ -107,6 +114,7 @@
     line-height: 0;
     display: flex;
     align-items: center;
+    font-size: 12px;
     justify-content: space-between;
 }
 .singleMain > .singleDetails > .singleDropdown > .singleDown > span > h6{

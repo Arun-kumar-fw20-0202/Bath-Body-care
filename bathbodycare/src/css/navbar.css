@@ -29,6 +29,35 @@ header > .navBox1 > .navCompo{
 header > .navBox1 > .navCompo > a > img{
     width: 350px;
 }
+header > .navBox1 > .navCompo > .navIcon > a{
+    position: relative;
+    padding: 5px 10px;
+    color: black;
+    /* border: 1px solid black; */
+}
+header > .navBox1 > .navCompo > .navIcon > a.loggedIn:hover .profilePopup{
+    visibility: visible;
+}
+
+header > .navBox1 > .navCompo > .navIcon > a > .profilePopup{
+    position: absolute;
+    left: -50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    width: 100px;
+    padding: 10px 20px;
+    visibility: hidden;
+    border: 1px solid black;
+}
+header > .navBox1 > .navCompo > .navIcon > a > .profilePopup > a{
+    text-decoration: none;
+    color: black;
+}
+header > .navBox1 > .navCompo > .navIcon > a > .profilePopup > a:hover{
+    text-decoration: underline;
+}
 header > .navBox1 > .navCompo > .navIcon{
     display: flex;
     gap: 20px;

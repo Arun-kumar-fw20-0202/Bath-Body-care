@@ -20,9 +20,11 @@ function SingleProduct(){
         setQty(qty+val)
     }
 
+    // https://fakestoreapi.com/products/${id}
+
     useEffect(() => {
         const fetchData = async () => {
-          const result = await axios.get(`https://fakestoreapi.com/products/${id}`);
+          const result = await axios.get(`http://localhost:8080/data/${id}`);
           setSingleProduct( result.data );
         };
         fetchData();
@@ -44,8 +46,9 @@ function SingleProduct(){
                 
                 <div className="singleQty">
                     <input onChange={()=> ""} type="number" value={qty} />
-                    <button disabled={qty <= 1} style={{background: qty <= 1 ? "#8ca9c0" : "#095c9d"}} onClick={()=>handleQty(-1)}>-</button>
-                    <button disabled={qty == 10} style={{background: qty >= 10 ? "#8ca9c0" : "#095c9d"}} onClick={()=>handleQty(1)}>+</button>
+                    <button disabled={qty <= 1} style={{background: qty <= 1 ? "#cccc" : "#000"}} onClick={()=>handleQty(-1)}>-</button>
+                    <button disabled={qty == 10} style={{background: qty >= 10 ? "#cccc" : "#000"}} onClick={()=>handleQty(1)}>+</button>
+                    <button style={{background: "#000"}}>ADD TO CART</button>
                 </div>
 
                 <h5>In Stock</h5>
