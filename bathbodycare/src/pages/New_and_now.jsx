@@ -33,8 +33,8 @@ function New_and_now() {
 
   const [products, setProducts] = useState([]);
   const [newSort, setNewSort] = useState(sorting);
-  const [loading, setLoading] = useState(false);
   const [limit, setLimit] = useState(initialParams);
+  const [loading, setLoading] = useState(false);
 
   //
   useEffect(() => {
@@ -47,7 +47,7 @@ function New_and_now() {
     setLimit(changeBy);
   };
   const getData = () => {
-    return fetch(`http://localhost:8080/data?_limit=${limit}`)
+    return fetch(`http://localhost:8080/data?_limit=${limit}&sort=${newSort}`)
     .then((res) => res.json());
   };
   useEffect(() => {

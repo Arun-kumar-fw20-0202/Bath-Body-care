@@ -47,6 +47,7 @@ function Bodycare(){
     let changeBy = limit + val;
     setLimit(changeBy);
   };
+  // jewelery
   const getData = () => {
     return fetch(`http://localhost:8080/data?_limit=${limit}`)
     .then((res) => res.json());
@@ -97,7 +98,6 @@ function Bodycare(){
       },
     };
     await axios.post(`http://localhost:8080/addtocart`, newdata).then((e) => {
-      // console.log(e.data);
       alert("Item Add To Cart")
     });
   };

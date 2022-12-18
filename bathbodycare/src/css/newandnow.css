@@ -1,6 +1,6 @@
 .newAndNowMain{
     position: relative;
-    min-height: 100vh;
+    min-height: 20vh;
     width: 90%;
     margin: auto;
     display: flex;
@@ -67,7 +67,7 @@
     justify-content: space-between;
     flex-direction: column;
     padding: 10px 5px;
-    height: 100%;
+    min-height: 10vh;
     /* border: 1px solid red; */
 }
 .newAndNowMain  > .newAndNowItems > .newItemBox > a img{
